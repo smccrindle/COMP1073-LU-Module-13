@@ -31,7 +31,7 @@
         var map = L.mapquest.map("map", {
           center: [44.414809, -79.667755],
           layers: L.mapquest.tileLayer("map"),
-          zoom: 12
+          zoom: 13
         });
         // STEP 7: The second parameter of the above method accepts an object - let's set the center, layers, and zoom levels
         // STEP 7a: Get the lat/lng for your address at https://developer.mapquest.com/documentation/tools/latitude-longitude-finder/
@@ -39,7 +39,7 @@
         // STEP 7c: Set the initial zoom level in the above object (1-18)
 
         // STEP 8: Add the traffic layer
-        
+        map.addLayer(L.mapquest.trafficLayer());
         // STEP 9: Add the incidents layer
         
         // STEP 10: Add a custom marker to the map

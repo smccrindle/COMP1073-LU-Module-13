@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Third Party APIs | COMP1073 Client-Side JavaScript</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="css/normalize.css" rel="stylesheet" />
+	<link href="css/nytimes.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>New York Times API</h1>
+	<p>This example shows how to connect to a <abbr title="REpresentative State Transfer">REST</abbr>ful API. It’s a bit different that what we’ve been doing with other APIs.</p>
+	<div class="wrapper">
+		<div class="controls">
+			<form>
+				<p>
+					<label for="search">Enter a SINGLE search term (required): </label>
+					<input type="text" id="search" class="search" required>
+				</p>
+				<p>
+					<label for="start-date">Start date (format YYYYMMDD): </label>
+					<input type="date" id="start-date" class="start-date" pattern="[0-9]{8}">
+				</p>
+				<p>
+					<label for="end-date">End date (format YYYYMMDD): </label>
+					<input type="date" id="end-date" class="end-date" pattern="[0-9]{8}">
+				</p>
+				<p>
+					<button class="submit">Search</button>
+				</p>
+			</form>
+		</div>
+		<div class="results">
+			<section>
+			</section>
+		</div>
+	</div>
+
+	<script>
+		// The URL for the Article Search API at nytimes.com
+		var baseURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
+		// STEP 1: Get your own API key and paste it below…
+		var key = '';
+		var url;
+		// Grab references to all the DOM elements you'll need to manipulate
+		var searchTerm = document.querySelector('.search');
+		var startDate = document.querySelector('.start-date');
+		var endDate = document.querySelector('.end-date');
+		var searchForm = document.querySelector('form');
+		var submitBtn = document.querySelector('.submit');
+		var section = document.querySelector('section');
+		// STEP 2: Add a submit event listener for the search form, referencing the fetchResults function as the callback
+		
+		// Functions
+		function fetchResults(e) {
+			// Use preventDefault() to stop the form submitting
+			e.preventDefault();
+			// STEP 3: Assemble the full URL, according to the API documentation at the New York Times
+			
+
+			// STEP 4: Use fetch() to pass the URL that we built as a request to the API service
+
+		}
+
+		function displayResults(json) {
+			// Clear out the old results…
+			while (section.firstChild) {
+					section.removeChild(section.firstChild);
+			}
+			// STEP 6: Create the var articles to capture the articles from the JSON object
+			
+
+		  if(articles.length === 0) {
+		    var para = document.createElement('p');
+		    para.textContent = 'No results returned.'
+		    section.appendChild(para);
+		  } else {
+		    for(var i = 0; i < articles.length; i++) {
+		      var article = document.createElement('article');
+		      var heading = document.createElement('h2');
+		      var link = document.createElement('a');
+		      var img = document.createElement('img');
+		      var para1 = document.createElement('p');
+
+		      var current = articles[i];
+		      console.log(current);
+					// STEP 7: Look at the console output from the API…
+		      link.href = current.web_url;
+		      link.textContent = current.headline.main;
+		      para1.textContent = current.snippet;
+
+		      if(current.multimedia.length > 0) {
+		        img.src = 'https://www.nytimes.com/' + current.multimedia[0].url;
+		        img.alt = current.headline.main;
+		      }
+					// STEP 8: Put each article together as an ARTICLE element and append it as a child of the SECTION element in the HTML
+
+				}
+			}
+		};
+
+		// This example adapted from "Third-party APIs" at https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs
+	</script>
+</body>
+</html>

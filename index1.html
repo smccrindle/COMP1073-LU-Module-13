@@ -15,14 +15,15 @@
       }
     </style>
     <!-- STEP 1: Point your app to the MapQuest JavaScript library at their CDN (https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js) -->
-
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <!-- STEP 2: Also, add the CSS that goes along with it, also served up from their CDN (https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css) -->
-    
+    <link href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" rel="stylesheet" />
     <script>
       // STEP 3: Create a variable to contain a map layer (use 'L')
-      
+      var L;
       // STEP 4: Build a DOM loaded event listener (using an ECMAScript fat arrow for the anonymous function)
-      
+      window.addEventListener('load', (event) => {
+        console.log("Page loaded!");
       // STEP 5a: Get an API key from MapQuest
       // STEP 5b: Add the mapquest.key property to var 'L'
         
@@ -41,7 +42,7 @@
         
         // Learn more about this API at https://developer.mapquest.com/documentation/mapquest-js/
       
-
+      });
       // This example adapted from "Third-party APIs" at https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs
       
       // A special thanks to MapQuest for the use of their great API - https://developer.mapquest.com/documentation/

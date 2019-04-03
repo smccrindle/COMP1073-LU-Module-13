@@ -59,7 +59,11 @@
 			// STEP 3: Assemble the full URL, according to the API documentation at the New York Times
 			url = baseURL + "?api-key=" + key + "&q=" + searchTerm.value + '&fq=document_type:("article")';
 			// STEP 4: Use fetch() to pass the URL that we built as a request to the API service
-
+			fetch(url).then(function(result){
+				return result.json();
+			}).then(function(json){
+				displayResults(json);
+			});
 		}
 
 		function displayResults(json) {
@@ -68,7 +72,7 @@
 					section.removeChild(section.firstChild);
 			}
 			// STEP 6: Create the var articles to capture the articles from the JSON object
-			
+			var articles = json.response.docs;
 
 		  if(articles.length === 0) {
 		    var para = document.createElement('p');

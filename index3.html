@@ -40,7 +40,7 @@
 		// The URL for the Article Search API at nytimes.com
 		var baseURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
 		// STEP 1: Get your own API key and paste it below…
-		var key = '';
+		var key = 'Aan8co9cOTtXsOER9KDyvcAgMsXtWyGD';
 		var url;
 		// Grab references to all the DOM elements you'll need to manipulate
 		var searchTerm = document.querySelector('.search');
@@ -50,9 +50,10 @@
 		var submitBtn = document.querySelector('.submit');
 		var section = document.querySelector('section');
 		// STEP 2: Add a submit event listener for the search form, referencing the fetchResults function as the callback
-		
+		searchForm.addEventListener("submit", fetchResults);
 		// Functions
 		function fetchResults(e) {
+			console.log("Form submitted!");
 			// Use preventDefault() to stop the form submitting
 			e.preventDefault();
 			// STEP 3: Assemble the full URL, according to the API documentation at the New York Times

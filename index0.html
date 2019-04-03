@@ -30,13 +30,19 @@
 		verseChoose.addEventListener('change', function(){
 			var verse = verseChoose.value;
 			console.log(verse);
+			//updateDisplay(verse);
 		});
 		// STEP 3: Construct updateDisplay() function
-		
+		function updateDisplay(verse) {
 			// STEP 4: Declare and initialize URL to point to text file(s)
-			
+			var url = verse + ".txt";
 			// STEP 5: Build fetch() with promises
-		
+			fetch(url).then(function(response) {
+				response.text().then(function(text) {
+					poemDisplay.textContent = text;
+				});
+			});
+		};
 		// STEP 6: Initialize the app with Verse 1
 
 		// This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data

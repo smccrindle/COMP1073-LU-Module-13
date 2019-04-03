@@ -57,8 +57,7 @@
 			// Use preventDefault() to stop the form submitting
 			e.preventDefault();
 			// STEP 3: Assemble the full URL, according to the API documentation at the New York Times
-			
-
+			url = baseURL + "?api-key=" + key + "&q=" + searchTerm.value + '&fq=document_type:("article")';
 			// STEP 4: Use fetch() to pass the URL that we built as a request to the API service
 
 		}

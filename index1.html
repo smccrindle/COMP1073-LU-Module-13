@@ -43,7 +43,17 @@
         // STEP 9: Add the incidents layer
         map.addLayer(L.mapquest.incidentsLayer());
         // STEP 10: Add a custom marker to the map
-        
+        L.mapquest.textMarker([44.414809, -79.667755], {
+          text: "Georgian College",
+          subtext: "Of Applied Arts and Technology",
+          type: "marker",
+          position: "right",
+          icon: {
+            primaryColor: "#333333",
+            secondaryColor: "#FFCC00",
+            size: "sm"
+          }
+        }).addTo(map);
         // Learn more about this API at https://developer.mapquest.com/documentation/mapquest-js/
       
       });

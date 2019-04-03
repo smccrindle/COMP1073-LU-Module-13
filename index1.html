@@ -26,9 +26,13 @@
         console.log("Page loaded!");
       // STEP 5a: Get an API key from MapQuest
       // STEP 5b: Add the mapquest.key property to var 'L'
-        
+        L.mapquest.key = "nrWihnp8vdn4rqsfhPyetSAFJfcX7H4R";
         // STEP 6a: Create a var representing the actual map, using the mapquest.map method - the first parameter is the ID of the HTML element to contain the map
-        
+        var map = L.mapquest.map("map", {
+          center: [44.414809, -79.667755],
+          layers: L.mapquest.tileLayer("map"),
+          zoom: 12
+        });
         // STEP 7: The second parameter of the above method accepts an object - let's set the center, layers, and zoom levels
         // STEP 7a: Get the lat/lng for your address at https://developer.mapquest.com/documentation/tools/latitude-longitude-finder/
         // STEP 7b: Add the map tileLayer (raster map image tiles), and test the map out in the browser...

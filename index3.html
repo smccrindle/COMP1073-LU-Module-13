@@ -98,7 +98,11 @@
 		        img.alt = current.headline.main;
 		      }
 					// STEP 8: Put each article together as an ARTICLE element and append it as a child of the SECTION element in the HTML
-
+			  		article.appendChild(heading);
+					heading.appendChild(link);
+					article.appendChild(img);
+					article.appendChild(para1);
+					section.appendChild(article);
 				}
 			}
 		};
